@@ -44,7 +44,9 @@ func (app *application) buildTemplateFromDisk(t string) (*template.Template, err
 	templateSlice := []string{
 		"./templates/base.layout.gohtml",
 		"./templates/partials/header.partial.gohtml",
+		"./templates/partials/nav.partial.gohtml",
 		"./templates/partials/footer.partial.gohtml",
+		"./templates/not-found.page.gohtml",
 		fmt.Sprintf("./templates/%s", t),
 	}
 
@@ -54,4 +56,16 @@ func (app *application) buildTemplateFromDisk(t string) (*template.Template, err
 	}
 	app.templateMap[t] = tmpl
 	return tmpl, nil
+}
+
+func (app *application) renderNotFound(w http.ResponseWriter) {
+	fmt.Println("Template was not found, rendering not found page")
+	w.WriteHeader(http.StatusNotFound)
+	td := &templateData{}
+	tmpl, err := template.ParseFiles("/templates/not-found.page.gohtml")
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+	tmpl.ExecuteTemplate(w, "not-found", td)
 }

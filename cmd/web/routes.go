@@ -17,6 +17,8 @@ func (app *application) routes() http.Handler {
 	mux.Use(middleware.Heartbeat("/ping"))
 
 	mux.Get("/", app.ShowHome)
+	mux.Get("/about", app.ShowAbout)
+	mux.Get("/{page}", app.ShowPage)
 
 	return mux
 }
