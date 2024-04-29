@@ -1,0 +1,34 @@
+{{ define "nav" }}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Breeds
+          </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/cat-breeds">Cat breeds</a>
+          <a class="dropdown-item" href="/dog-breeds">Dog breeds</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/cat-breeders">Cat Breeders Directory</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/dog-breeders">Dog Breeders Directory</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{{ end }}
