@@ -41,3 +41,6 @@ go.mod
 
 # Exclude the node_modules folder in case of hybrid applications (e.g., if you're using TypeScript)
 node_modules/
+
+# Exlude db files from local development
+db-data
